@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.font-ptserif {
+  font-family: "PT Serif", serif;
+}
+
+.font-dmsans {
+  font-family: "DM Sans", sans-serif;
+}
