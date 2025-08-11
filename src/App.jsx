@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Analytics } from "@vercel/analytics/next"
 import './App.css'
 import squarePfp from './assets/square-pfp.png'
 
@@ -7,20 +8,21 @@ function App() {
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
   const cards = [
-    { image: '/someone.png', href: 'https://stax.ai' },
+    { image: '/someone.png', href: '#' },
     { image: '/comingsoon.png', href: '#' },
     { image: '/comingsoon.png', href: '#' },
-    { image: '/comingsoon.png', href: 'https://cnn.com' },
     { image: '/comingsoon.png', href: '#' },
-    { image: '/figma.png', href: 'https://substack.com' },
-    { image: '/github.png', href: 'https://dribbble.com' },
+    { image: '/comingsoon.png', href: '#' },
+    { image: '/figma.png', href: '#' },
+    { image: '/github.png', href: '#' },
     { image: '/linkedin.png', href: 'https://linkedin.com/in/kushagra-singh-varanasi' },
-    { image: '/contact.png', href: '' },
-    { image: '/resume.png', href: '' },
+    { image: '/contact.png', href: '#' },
+    { image: '/resume.png', href: '#' },
   ]
 
   return (
     <>
+      <Analytics />
       <div className='h-screen w-screen box-border font-dmsans'>
         {/* Side borders */}
         <div className='pointer-events-none fixed inset-y-0 left-0 w-[50px] bg-transparent border-r border-white/15 z-50'></div>
