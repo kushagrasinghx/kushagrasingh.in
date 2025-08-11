@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+:root {
+  --bg: #141414;
+  --fg: #ffffff;
+}
+:root.light {
+  --bg: #fafafa;
+  --fg: #111111;
+}
+
+html, body, #root {
+  background: var(--bg);
+  color: var(--fg);
+}
+
 .font-ptserif {
   font-family: "PT Serif", serif;
 }
@@ -31,4 +45,9 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+/* Random card rotation on hover */
+.group:hover {
+  transform: translateY(-24px) scale(1.04) rotate(var(--hover-rotate, -2deg));
 }

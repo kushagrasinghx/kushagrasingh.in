@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Zielo – A Collaboration Platform",
+    "banner": "/zielo-project.png",
+    "description": "A web-based platform designed to connect creators and brands for seamless collaborations. Zielo streamlines the partnership process by enabling brands to discover, engage, and work with content creators through a unified dashboard.",
+    "github": "#"
+  },
+  {
+    "title": "SocialSense",
+    "banner": "/socialsense-project.png",
+    "description": "SocialSense is an AI-powered personal branding and LinkedIn content creation platform. Businesses, professionals, and agencies use it to plan, create, and publish engaging content—such as posts, carousels, and content calendars—with efficiency and consistency.",
+    "github": "https://www.socialsense.ai/"
+  }
+] 
