@@ -1,23 +1,22 @@
 import { useState } from 'react'
 import './App.css'
 import squarePfp from './assets/square-pfp.png'
-import comingSoon from './assets/comingsoon.svg'
 
 function App() {
   const [count, setCount] = useState(0)
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
   const cards = [
-    { image: comingSoon, href: 'https://stax.ai' },
-    { image: comingSoon, href: '#' },
-    { image: comingSoon, href: '#' },
-    { image: comingSoon, href: 'https://cnn.com' },
-    { image: comingSoon, href: '#' },
-    { image: comingSoon, href: 'https://substack.com' },
-    { image: comingSoon, href: 'https://dribbble.com' },
-    { image: comingSoon, href: 'https://linkedin.com/in/kushagrasingh' },
-    { image: comingSoon, href: 'mailto:contact@kushagrasingh.in' },
-    { image: comingSoon, href: '#' },
+    { image: '/someone.png', href: 'https://stax.ai' },
+    { image: '/comingsoon.png', href: '#' },
+    { image: '/comingsoon.png', href: '#' },
+    { image: '/comingsoon.png', href: 'https://cnn.com' },
+    { image: '/comingsoon.png', href: '#' },
+    { image: '/figma.png', href: 'https://substack.com' },
+    { image: '/github.png', href: 'https://dribbble.com' },
+    { image: '/linkedin.png', href: 'https://linkedin.com/in/kushagra-singh-varanasi' },
+    { image: '/contact.png', href: '' },
+    { image: '/resume.png', href: '' },
   ]
 
   return (
@@ -77,7 +76,7 @@ function App() {
                 {cards.map((card, i) => (
                   <div
                     key={card.image + i}
-                    className={`group relative h-[360px] w-[240px] rounded-2xl border-5 border-white/20 overflow-hidden shadow-[0_50px_120px_rgba(0,0,0,0.45)] transition-all duration-300 ease-out ${i !== 0 ? '-ml-24' : ''} hover:-translate-y-6 hover:scale-[1.04] hover:rotate-[-2deg] hover:z-50 ${hoveredIndex !== null && hoveredIndex !== i ? 'blur-sm opacity-60' : ''}` }
+                    className={`group relative h-[360px] w-[240px] rounded-2xl border-2 border-white/20 overflow-hidden shadow-[0_50px_120px_rgba(0,0,0,0.45)] transition-all duration-300 ease-out ${i !== 0 ? '-ml-24' : ''} hover:-translate-y-6 hover:scale-[1.04] hover:rotate-[-2deg] hover:z-50 ${hoveredIndex !== null && hoveredIndex !== i ? 'blur-sm opacity-60' : ''}` }
                     onMouseEnter={() => setHoveredIndex(i)}
                     onMouseLeave={() => setHoveredIndex(null)}
                   >
