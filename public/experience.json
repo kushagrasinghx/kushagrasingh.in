@@ -1,0 +1,40 @@
+[
+    {
+      "role": "Frontend Engineer",
+      "company": "NextFront Technologies Pvt. Ltd.",
+      "period": "June 2023 – Present",
+      "location": "Remote - Bengaluru",
+      "banner": "/nextfront-exp.png",
+      "description": "Built Zielo - A collaboratino project for brands and content creators.",
+      "highlights": [
+        "Building responsive user interfaces using React.js, Tailwind CSS, and Firebase, focused on performance, usability, and component reusability across the project."
+      ],
+      "link": "https://www.nextfront.in/"
+    },
+    {
+      "role": "UIUX Designer",
+      "company": "SocialSense",
+      "period": "June 2023 – May 2024",
+      "location": "Remote - Bengaluru",
+      "banner": "/socialsense-project.png",
+      "description": "Contributed making user interfaces and website using Figma and Framer.",
+      "highlights": [
+        "Crafted visually engaging and intuitively navigable web application interfaces using modern UI/UX principles, wireframing techniques, and Framer, resulting in improved user engagement and satisfaction.",
+        "Created brand-aligned graphics and an optimized website that elevated the company’s professional image and boosted interaction across digital platforms."
+    ],
+      "link": "https://www.socialsense.ai/"
+    },
+    {
+        "role": "Webflow Developer",
+        "company": "Quickads.ai",
+        "period": "Feb 2024 – Mar 2024",
+        "location": "Remote - Singapore",
+        "banner": "/quickads-exp.png",
+        "description": "Contributed making user interfaces and website using Figma and Framer.",
+        "highlights": [
+          "Developed and maintained responsive, visually appealing Webflow websites in collaboration with cross-functional teams, enhancing client engagement and web performance."
+        ],
+        "link": "https://www.quickads.ai/"
+      }
+  ]
+  

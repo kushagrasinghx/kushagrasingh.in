@@ -26,7 +26,7 @@ export default function Home() {
           <img src={squarePfp} alt='Profile' className='w-[90px] h-[90px] object-cover rounded-full' />
         </div>
         <div className='w-full font-ptserif text-7xl'>
-          Hey there, I am Kushagra, a product designer polishing ideas until they shine
+          hey there, I am Kushagra, a product designer polishing ideas until they shine
           <span className='inline-block align-middle ml-3'>
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className='w-[0.9em] h-[0.9em]' aria-hidden='true'>
               <path fill='currentColor' d='M12 2 L15.535 8.465 L22 12 L15.535 15.535 L12 22 L8.465 15.535 L2 12 L8.465 8.465 Z' />
