@@ -4,7 +4,7 @@ export default function Projects() {
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
-    fetch('/src/data/projects.json')
+    fetch('/projects.json')
       .then((res) => res.json())
       .then(setProjects)
       .catch(() => setProjects([]))
@@ -13,7 +13,7 @@ export default function Projects() {
   return (
     <main className='w-full h-[calc(100vh-100px)] flex flex-col box-border px-[100px] py-[40px] overflow-x-hidden items-center'>
       <div className='w-full max-w-[1000px]'>
-        <h1 className='font-ptserif text-4xl mb-6'>Kushagra Singh - Projects</h1>
+        <h1 className='font-ptserif text-4xl mb-6'>Projects</h1>
         <p className='text-white/60'>some of my recent works:</p>
 
         <div className='mt-10 flex flex-col gap-12'>

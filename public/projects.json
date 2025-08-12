@@ -1,5 +1,11 @@
 [
   {
+    "title": "tracknest – A SaaS Based Logistic Management System",
+    "banner": "/tracknest-project.png",
+    "description": "TrackNest is a cloud-based logistics management system that connects drivers, dispatchers, and customers in real time—offering optimized routing, live fleet tracking, instant communication, and transparent delivery updates for faster, smarter, and more reliable operations.",
+    "github": "#"
+  },
+  {
     "title": "Zielo – A Collaboration Platform",
     "banner": "/zielo-project.png",
     "description": "A web-based platform designed to connect creators and brands for seamless collaborations. Zielo streamlines the partnership process by enabling brands to discover, engage, and work with content creators through a unified dashboard.",
