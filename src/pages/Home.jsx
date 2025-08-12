@@ -5,16 +5,16 @@ export default function Home() {
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
   const cards = [
-    { image: '/someone.png', href: '#' },
-    { image: '/socialsense.png', href: '#' },
-    { image: '/comingsoon.png', href: '#' },
-    { image: '/suite.png', href: '#' },
-    { image: '/figma.png', href: '#' },
-    { image: '/framer.png', href: '#' },
-    { image: '/github.png', href: '' },
+    { image: '/someone.png', href: 'https://www.someone.co.in/' },
+    { image: '/socialsense.png', href: 'https://www.socialsense.ai/' },
+    { image: '/comingsoon.png', href: '/contact' },
+    { image: '/suite.png', href: '' },
+    { image: '/figma.png', href: '' },
+    { image: '/framer.png', href: '' },
+    { image: '/github.png', href: 'https://github.com/kushagrasinghx/' },
     { image: '/linkedin.png', href: 'https://linkedin.com/in/kushagra-singh-varanasi' },
     { image: '/contact.png', href: '/contact' },
-    { image: '/resume.png', href: '#' },
+    { image: '/resume.png', href: '/resume' },
   ]
 
   const randomRotations = cards.map(() => (Math.random() - 0.5) * 8 - 2)

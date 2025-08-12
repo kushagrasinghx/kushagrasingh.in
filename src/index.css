@@ -12,6 +12,7 @@
 html, body, #root {
   background: var(--bg);
   color: var(--fg);
+  overflow-x: hidden;
 }
 
 .font-ptserif {
