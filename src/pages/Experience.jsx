@@ -4,7 +4,6 @@ export default function Experience() {
   const [items, setItems] = useState([])
 
   useEffect(() => {
-    // works in Vite dev + Vercel deploy
     const url = `${import.meta.env.BASE_URL}experience.json`
     fetch(url)
       .then((res) => {
@@ -16,28 +15,31 @@ export default function Experience() {
   }, [])
 
   return (
-    <main className="w-full h-[calc(100vh-100px)] flex flex-col box-border px-[100px] py-[40px] overflow-x-hidden items-center">
-      <div className="w-full max-w-[1000px]">
+    <main className="w-full min-h-[calc(100vh-100px)] flex flex-col box-border px-4 sm:px-6 md:px-[100px] py-[24px] md:py-[40px] overflow-x-hidden items-center">
+      <div className="w-full max-w-[1000px] mb-10">
         <h1 className="font-ptserif text-4xl mb-6">experience</h1>
         <p className="text-white/60">roles I’ve held and what I worked on:</p>
 
         <div className="mt-10 flex flex-col gap-12">
           {items.map((x, i) => (
             <div key={(x.id || x.title || x.role || 'exp') + i}>
-              {/* Optional company/logo banner */}
+              {/* Company/logo banner: keep 1000x180 on desktop; same ratio on mobile */}
               {x.banner && (
-                <div className="w-full h-[180px] bg-gray-800 flex items-center justify-center overflow-hidden rounded-2xl border border-white/10 shadow-lg mb-2">
+                <div
+                  className="w-full max-w-[1000px] aspect-[50/9] bg-gray-800 flex items-center justify-center overflow-hidden rounded-md border border-white/10 md:shadow-lg mb-2"
+                  style={{ aspectRatio: '50 / 9' }} /* fallback */
+                >
                   <img
                     src={x.banner}
                     alt={x.company || x.role || 'company banner'}
-                    className="object-cover w-[1000px] h-[180px] max-w-full"
-                    style={{ width: '1000px', height: '180px' }}
+                    className="w-full h-full object-cover"
+                    draggable={false}
                   />
                 </div>
               )}
 
-              {/* Experience content */}
-              <div className="flex flex-col md:flex-row justify-between items-start gap-8 pt-4">
+              {/* Content row: no gap on mobile; gap on desktop */}
+              <div className="flex flex-col md:flex-row justify-between items-start pt-4 gap-4 md:gap-8">
                 <div className="flex-1">
                   <h2 className="font-dmsans text-2xl mb-1 text-white">
                     {x.role || x.title}
@@ -45,6 +47,7 @@ export default function Experience() {
                       <span className="text-white/60"> · {x.company}</span>
                     ) : null}
                   </h2>
+
                   {(x.period || x.location) && (
                     <p className="text-white/50 mb-3">
                       {x.period}
@@ -52,9 +55,11 @@ export default function Experience() {
                       {x.location}
                     </p>
                   )}
+
                   {x.description && (
                     <p className="text-white/70 mb-4">{x.description}</p>
                   )}
+
                   {Array.isArray(x.highlights) && x.highlights.length > 0 && (
                     <ul className="list-disc ml-5 text-white/80 space-y-1">
                       {x.highlights.map((h, idx) => (
@@ -64,7 +69,7 @@ export default function Experience() {
                   )}
                 </div>
 
-                <div className="flex flex-col gap-3 min-w-[180px]">
+                <div className="flex flex-col gap-3 md:min-w-[180px]">
                   {x.link && (
                     <a
                       href={x.link}

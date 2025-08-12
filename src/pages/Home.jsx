@@ -91,7 +91,7 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div className='mt-6 mb-10 md:mt-3 w-full flex justify-center text-white/70 md:text-white'>
+      <div className='mt-5 mb-10 md:mt-10 w-full flex justify-center text-white/70 md:text-white'>
         ©2025 Kushagra Singh
       </div>
 

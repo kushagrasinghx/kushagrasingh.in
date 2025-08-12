@@ -11,8 +11,8 @@ function App() {
     <>
       <div className='h-screen w-screen box-border font-dmsans'>
         {/* Side borders */}
-        <div className='pointer-events-none fixed inset-y-0 left-0 w-[50px] bg-transparent border-r border-white/15 z-50'></div>
-        <div className='pointer-events-none fixed inset-y-0 right-0 w-[50px] bg-transparent border-l border-white/15 z-50'></div>
+        <div className='pointer-events-none fixed inset-y-0 left-0 w-[50px] bg-transparent border-r border-white/15 z-50 hidden md:block'></div>
+        <div className='pointer-events-none fixed inset-y-0 right-0 w-[50px] bg-transparent border-l border-white/15 z-50 hidden md:block'></div>
 
         {/* Navbar */}
         <Navbar />
