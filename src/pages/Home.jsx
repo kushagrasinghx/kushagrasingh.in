@@ -27,7 +27,7 @@ export default function Home() {
         </div>
 
         <div className='w-full font-ptserif text-[32px] leading-tight sm:text-[40px] md:text-7xl'>
-          hey there, I am Kushagra, a product designer polishing ideas until they shine
+          hey there! I'm Kushagra, a product designer that codes
           <span className='inline-block align-middle ml-2 md:ml-3'>
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' className='w-[1em] h-[1em]' aria-hidden='true'>
               <path fill='currentColor' d='M12 2 L15.535 8.465 L22 12 L15.535 15.535 L12 22 L8.465 15.535 L2 12 L8.465 8.465 Z' />
