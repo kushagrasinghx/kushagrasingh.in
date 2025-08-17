@@ -7,7 +7,6 @@ export default function Home() {
   const cards = [
     { image: '/someone.png', href: 'https://www.someone.co.in/' },
     { image: '/socialsense.png', href: 'https://www.socialsense.ai/' },
-    { image: '/comingsoon.png', href: '/contact' },
     { image: '/suite.png', href: '' },
     { image: '/figma.png', href: '' },
     { image: '/framer.png', href: '' },
