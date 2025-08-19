@@ -11,11 +11,14 @@ export default function Resume() {
         <h1 className="font-ptserif text-4xl mb-6">resume</h1>
         <p className="text-white/60 dark:text-white/60 mb-4">view and download my résumé</p>
 
-        <div className="w-full rounded-2xl border border-white/10 bg-white/5 overflow-hidden" style={{ height: '80vh' }}>
+        {/* Desktop / tablet viewer */}
+        <div className="hidden md:block w-full rounded-2xl border border-white/10 bg-white/5 overflow-hidden" style={{ height: '80vh' }}>
           <PdfViewer src={resumeUrl} />
         </div>
 
-        <div className="mt-4 text-sm text-white/70">
+        {/* Mobile message + download link (visible only on small screens) */}
+        <div className="block md:hidden mt-4 text-sm text-white/70">
+          <p>To view resume, open this link on a desktop or laptop device.</p>
           <a href="/resume.pdf" download className="text-white/80 underline">Download PDF</a>
         </div>
       </div>

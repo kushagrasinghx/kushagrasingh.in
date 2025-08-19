@@ -114,44 +114,6 @@ export default function PdfViewer({ src }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, scale])
 
-  // Auto-fit on load and on container resize unless user manually changed zoom
-  useEffect(() => {
-    let resizeObserver = null
-    let userZoom = false
-
-    // track user interactions that change scale
-    const onUserZoom = () => { userZoom = true }
-
-    const setupResize = () => {
-      const el = containerRef.current
-      if (!el) return
-      resizeObserver = new ResizeObserver(() => {
-        if (userZoom) return // don't auto-fit if user changed zoom
-        // recompute fit scale based on current page's natural size
-        if (pdfRef.current) {
-          pdfRef.current.getPage(page).then((p) => {
-            const viewport = p.getViewport({ scale: 1 })
-            const containerW = el.clientWidth - 32 // account for padding
-            const fit = Math.max(0.25, Math.min(3, containerW / viewport.width))
-            setScale(fit)
-          }).catch(() => {})
-        }
-      })
-      resizeObserver.observe(el)
-    }
-
-    // listen for manual zoom buttons
-    const zoomButtons = document.querySelectorAll('[data-pdf-zoom]')
-    zoomButtons.forEach((b) => b.addEventListener('click', onUserZoom))
-
-    setupResize()
-
-    return () => {
-      if (resizeObserver) resizeObserver.disconnect()
-      zoomButtons.forEach((b) => b.removeEventListener('click', onUserZoom))
-    }
-  }, [page])
-
   async function renderPage(p, pdfInstance) {
     try {
       const pdfPage = await pdfInstance.getPage(p)
@@ -177,9 +139,9 @@ export default function PdfViewer({ src }) {
         }} />
         <div>/ {pageCount}</div>
         <div className="ml-auto flex items-center gap-2">
-          <button data-pdf-zoom onClick={() => setScale((s) => Math.max(0.25, s - 0.25))} className="px-3 py-1 rounded bg-white/5">-</button>
+          <button onClick={() => setScale((s) => Math.max(0.25, s - 0.25))} className="px-3 py-1 rounded bg-white/5">-</button>
           <div>{(scale * 100).toFixed(0)}%</div>
-          <button data-pdf-zoom onClick={() => setScale((s) => Math.min(3, s + 0.25))} className="px-3 py-1 rounded bg-white/5">+</button>
+          <button onClick={() => setScale((s) => Math.min(3, s + 0.25))} className="px-3 py-1 rounded bg-white/5">+</button>
         </div>
         <button onClick={() => { if (pdfRef.current) pdfRef.current.destroy(); pdfRef.current = null; setPage(1); }} className="px-3 py-1 rounded bg-white/5">Reset</button>
       </div>
