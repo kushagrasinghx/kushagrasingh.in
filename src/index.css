@@ -1,14 +1,7 @@
 @import "tailwindcss";
 
-/* Default to light mode for better readability */
+/* Default to dark mode site-wide. Light-mode logic removed intentionally. */
 :root {
-  --bg: #fafafa;
-  --fg: #111111;
-  /* RGB form of foreground for rgba utilities */
-  --fg-rgb: 17, 17, 17;
-}
-/* Preserve dark tokens under .dark class for users who opt into dark mode */
-:root.dark {
   --bg: #141414;
   --fg: #ffffff;
   --fg-rgb: 255, 255, 255;
@@ -18,32 +11,6 @@ html, body, #root {
   background: var(--bg);
   color: var(--fg);
   overflow-x: hidden;
-}
-
-/*
-  Override some Tailwind `text-white` utility edge-cases so that when the site
-  is in light mode (no `.dark` on :root), text that used `text-white` will instead
-  use the readable `--fg`. When `.dark` is present, the original white color stays.
-*/
-:root:not(.dark) .text-white {
-  color: var(--fg) !important;
-}
-:root:not(.dark) .text-white\/50 {
-  color: rgba(var(--fg-rgb), 0.5) !important;
-}
-:root:not(.dark) .text-white\/80 {
-  color: rgba(var(--fg-rgb), 0.8) !important;
-}
-:root:not(.dark) .text-white\/60 {
-  color: rgba(var(--fg-rgb), 0.6) !important;
-}
-
-/* Force any Tailwind-like text-* utility to use the foreground variable in light mode.
-   This ensures components that use text-white, text-gray-*, text-black, etc. display
-   readable text when the site is in light mode. If you need to preserve specific
-   colored text (badges, links), we can add exceptions later. */
-:root:not(.dark) [class*="text-"] {
-  color: var(--fg) !important;
 }
 
 .font-ptserif {
@@ -96,3 +63,4 @@ html, body, #root {
 .group:hover {
   transform: translateY(-24px) scale(1.04) rotate(var(--hover-rotate, -2deg));
 }
+/* Dark-only site: no light-mode hover overrides. */

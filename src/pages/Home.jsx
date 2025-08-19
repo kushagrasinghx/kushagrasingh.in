@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import { useTheme } from '../ThemeContext'
 import squarePfp from '../assets/square-pfp.png'
 
 export default function Home() {
   const [hoveredIndex, setHoveredIndex] = useState(null)
-  const { theme } = useTheme();
+  // Theme removed; pages use dark defaults
+  const theme = 'dark';
 
   const cards = [
     { image: '/someone.png', href: 'https://www.someone.co.in/' },
@@ -21,7 +21,7 @@ export default function Home() {
   const randomRotations = cards.map(() => (Math.random() - 0.5) * 8 - 2)
 
   return (
-    <main className={`w-full min-h-[calc(100vh-100px)] flex flex-col box-border px-4 sm:px-6 md:px-[100px] py-[24px] md:py-[40px] overflow-x-hidden items-center ${theme === 'light' ? 'text-black' : 'text-white'}`}> 
+  <main className={`w-full min-h-[calc(100vh-100px)] flex flex-col box-border px-4 sm:px-6 md:px-[100px] py-[24px] md:py-[40px] overflow-x-hidden items-center text-white`}> 
       <div className='w-full max-w-[1500px]'>
         <div className='w-full flex mb-5'>
           <img src={squarePfp} alt='Profile' className='w-[70px] h-[70px] md:w-[90px] md:h-[90px] object-cover rounded-full' />
@@ -38,22 +38,22 @@ export default function Home() {
 
         <div className='w-full flex flex-col gap-4 md:gap-6'>
           <div className='w-full flex flex-col sm:flex-row gap-3 sm:gap-10'>
-            <div className='font-ptserif text-2xl sm:text-3xl md:text-5xl mt-6 md:mt-10 text-white/50 dark:text-white/50 light:text-black/50'>
-              <a href='mailto:contact@kushagrasingh.in' className='hover:text-white dark:hover:text-white light:hover:text-black transition-colors'>hello@kushagrasingh.in</a>
+            <div className='font-ptserif text-2xl sm:text-3xl md:text-5xl mt-6 md:mt-10 text-white/50 dark:text-white/50'>
+              <a href='mailto:contact@kushagrasingh.in' className='hover:text-white dark:hover:text-white transition-colors'>hello@kushagrasingh.in</a>
             </div>
-            <div className='font-ptserif text-2xl sm:text-3xl md:text-5xl mt-0 md:mt-10 text-white/50 dark:text-white/50 light:text-black/50'>
+      <div className='font-ptserif text-2xl sm:text-3xl md:text-5xl mt-0 md:mt-10 text-white/50 dark:text-white/50'>
               <a
                 href='https://linkedin.com/in/kushagra-singh-varanasi'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='hover:text-white dark:hover:text-white light:hover:text-black transition-colors'
+        className='hover:text-white dark:hover:text-white transition-colors'
               >
                 connect on linkedin
               </a>
             </div>
           </div>
 
-          <div className='flex items-center text-base sm:text-lg text-white/50 dark:text-white/50 light:text-black/50 mt-2'>
+          <div className='flex items-center text-base sm:text-lg text-white/50 dark:text-white/50 mt-2'>
             <span className='inline-block w-3 h-3 rounded-full bg-green-400 mr-3'></span>
             <span className='font-medium'>working at</span>
             <span className='font-medium text-green-400 ml-2'>NextFront Technologies</span>
@@ -62,12 +62,12 @@ export default function Home() {
       </div>
 
       {/* Cards: Desktop/original layout (md and up) */}
-      <div className='relative mt-10 md:mt-20 md:px-[60px] overflow-visible justify-center hidden md:flex'>
+  <div className='relative mt-10 md:mt-20 md:px-[60px] overflow-visible justify-center hidden md:flex'>
         <div className='flex items-end'>
           {cards.map((card, i) => (
             <div
               key={card.image + i}
-              className={`group relative h-[360px] w-[240px] rounded-2xl border-2 border-white/20 dark:border-white/20 light:border-black/20 overflow-hidden shadow-[0_50px_120px_rgba(0,0,0,0.45)] dark:shadow-[0_50px_120px_rgba(0,0,0,0.45)] light:shadow-[0_50px_120px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out ${i !== 0 ? '-ml-24' : ''} hover:z-50 ${hoveredIndex !== null && hoveredIndex !== i ? 'blur-sm opacity-60' : ''}`}
+              className={`group relative h-[360px] w-[240px] rounded-2xl border-2 border-white/20 dark:border-white/20 overflow-hidden shadow-[0_50px_120px_rgba(0,0,0,0.45)] transition-all duration-300 ease-out ${i !== 0 ? '-ml-24' : ''} hover:z-50 ${hoveredIndex !== null && hoveredIndex !== i ? 'blur-sm opacity-60' : ''}`}
               style={{ '--hover-rotate': `${randomRotations[i]}deg` }}
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -79,7 +79,7 @@ export default function Home() {
                 className='absolute inset-0 block'
               >
                 <img src={card.image} alt='' className={`h-full w-full object-cover transition duration-300 ${hoveredIndex !== null && hoveredIndex !== i ? 'blur-sm opacity-60' : ''}`} />
-                <div className='absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 dark:ring-white/10 light:ring-black/10' />
+                <div className='absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 dark:ring-white/10' />
               </a>
             </div>
           ))}
@@ -92,7 +92,7 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div className='mt-5 mb-10 md:mt-10 w-full flex justify-center text-white/70 dark:text-white/70 light:text-black/70 md:text-white dark:md:text-white light:md:text-black'>
+  <div className='mt-5 mb-10 md:mt-10 w-full flex justify-center text-white/70 dark:text-white/70 md:text-white dark:md:text-white'>
         ©2025 Kushagra Singh
       </div>
 
@@ -216,7 +216,7 @@ function MobileCardDeck({ cards }) {
             href={card.href || '#'}
             target={card.href?.startsWith('http') ? '_blank' : undefined}
             rel={card.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
-            className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 block h-[360px] w-[240px] rounded-2xl overflow-hidden border-2 border-white/20 dark:border-white/20 light:border-black/20 md:shadow-[0_30px_80px_rgba(0,0,0,0.45)] dark:md:shadow-[0_30px_80px_rgba(0,0,0,0.45)] light:md:shadow-[0_30px_80px_rgba(0,0,0,0.15)]'
+            className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 block h-[360px] w-[240px] rounded-2xl overflow-hidden border-2 border-white/20 dark:border-white/20 md:shadow-[0_30px_80px_rgba(0,0,0,0.45)] dark:md:shadow-[0_30px_80px_rgba(0,0,0,0.45)]'
             style={{
               transform,
               zIndex: z,
@@ -236,7 +236,7 @@ function MobileCardDeck({ cards }) {
               className='h-full w-full object-cover select-none touch-none'
               draggable={false}
             />
-            <div className='absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 dark:ring-white/10 light:ring-black/10 pointer-events-none' />
+            <div className='absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 dark:ring-white/10 pointer-events-none' />
           </a>
         );
       })}
