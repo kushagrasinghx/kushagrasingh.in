@@ -131,19 +131,20 @@ export default function PdfViewer({ src }) {
 
   return (
     <div className="w-full h-full flex flex-col">
-      <div className="flex items-center gap-3 p-3 border-b border-white/10 sticky top-0 left-0 z-10 bg-transparent">
+  <div className="flex items-center gap-3 p-3 border-b border-white/10 sticky top-0 left-0 z-10 bg-transparent">
         <button onClick={() => setPage((p) => Math.max(1, p - 1))} className="px-3 py-1 rounded bg-white/5">◀</button>
         <div>Page</div>
         <input className="w-16 text-center rounded bg-white/5 px-2 py-1" value={page} onChange={(e) => {
           const v = Number(e.target.value) || 1; setPage(Math.min(Math.max(1, v), pageCount))
         }} />
         <div>/ {pageCount}</div>
-        <div className="ml-auto flex items-center gap-2">
+  <div className="ml-auto flex items-center gap-2">
           <button onClick={() => setScale((s) => Math.max(0.25, s - 0.25))} className="px-3 py-1 rounded bg-white/5">-</button>
           <div>{(scale * 100).toFixed(0)}%</div>
           <button onClick={() => setScale((s) => Math.min(3, s + 0.25))} className="px-3 py-1 rounded bg-white/5">+</button>
         </div>
-        <button onClick={() => { if (pdfRef.current) pdfRef.current.destroy(); pdfRef.current = null; setPage(1); }} className="px-3 py-1 rounded bg-white/5">Reset</button>
+  <a href={src} download className="inline-flex items-center px-4 py-1 rounded bg-white/10 hover:bg-white/20 text-white text-sm" rel="noreferrer">Download</a>
+  <button onClick={() => { if (pdfRef.current) pdfRef.current.destroy(); pdfRef.current = null; setPage(1); }} className="inline-flex items-center px-4 py-1 rounded bg-white/10 hover:bg-white/20 text-white text-sm">Reset</button>
       </div>
 
       <div ref={containerRef} className="flex-1 overflow-auto p-0">
