@@ -39,7 +39,7 @@ export default function Contact() {
   }
 
   return (
-    <main className={`w-full min-h-[calc(100vh-100px)] flex flex-col box-border px-4 sm:px-6 md:px-[100px] py-[24px] md:py-[40px] overflow-x-hidden items-center ${theme === 'light' ? 'text-black' : 'text-white'}`}> 
+  <main className={`w-full min-h-[calc(100vh-100px)] flex flex-col box-border px-4 sm:px-6 md:px-[100px] py-[24px] md:py-[40px] overflow-x-hidden items-center text-white`}> 
       <div className='w-full max-w-[1000px] mb-12'>
         <h1 className='font-ptserif text-4xl mb-6'>contact kushagra</h1>
 
