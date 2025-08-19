@@ -1,12 +1,58 @@
-# React + Vite
+# kushagrasingh.in — Portfolio template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite + TailwindCSS portfolio template ready to be forked and customized.
 
-Currently, two official plugins are available:
+Features
+- Fast dev server with Vite
+- TailwindCSS for utilities
+- Responsive layout and a card deck component
+- Email contact form powered by EmailJS
+- Dark-first styling (site runs in dark mode by default)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Quick start
+1. Install dependencies
 
-## Expanding the ESLint configuration
+   npm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. Start the dev server
+
+   npm run dev
+
+3. Build for production
+
+   npm run build
+
+4. Preview the production build locally
+
+   npm run preview
+
+Project structure
+- public/ — static assets and JSON data used by the site
+- src/
+  - components/ — shared UI components (Navbar, etc.)
+  - pages/ — routed pages (Home, Projects, Experience, Contact)
+  - assets/ — local images used by components
+  - App.jsx, main.jsx, index.css, App.css
+
+Cards image guidance
+- The card images used in the deck are best at 600x900 (portrait). Using this resolution provides optimal layout and appearance for the card deck.
+
+Email form setup
+- The contact form integrates with EmailJS. Provide these env vars in a local `.env` (or your hosting provider's environment settings):
+  - VITE_EMAILJS_SERVICE_ID
+  - VITE_EMAILJS_TEMPLATE_ID
+  - VITE_EMAILJS_PUBLIC_KEY
+
+Customization
+- Replace `public/projects.json` and `public/experience.json` to update content.
+- Swap images in `public/` and `src/assets/`.
+- Tailwind utility classes are used throughout — adjust classes in JSX files to change spacing/colors/layout.
+
+Notes about theme
+- This repository is simplified to a dark-first site. Light-mode logic and the theme toggle were removed. If you want light-mode, reintroduce a ThemeContext and update `index.css` variables.
+
+Contributing
+- Fork and submit PRs if you'd like to contribute improvements.
+
+License
+- No license provided. Check with the original author for licensing preferences.
