@@ -4,7 +4,6 @@ import emailjs from '@emailjs/browser'
 export default function Contact() {
   const formRef = useRef(null)
   const [status, setStatus] = useState({ state: 'idle', msg: '' })
-  const theme = 'dark'
 
   const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
   const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID

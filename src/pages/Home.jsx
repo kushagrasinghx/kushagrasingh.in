@@ -3,8 +3,6 @@ import squarePfp from '../assets/square-pfp.png'
 
 export default function Home() {
   const [hoveredIndex, setHoveredIndex] = useState(null)
-  // Theme removed; pages use dark defaults
-  const theme = 'dark';
 
   const cards = [
     { image: '/someone.png', href: 'https://www.someone.co.in/' },

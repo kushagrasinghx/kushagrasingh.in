@@ -15,6 +15,7 @@
     "@vercel/analytics": "^1.5.0",
     "lucide-react": "^0.539.0",
     "motion": "^12.23.12",
+    "pdfjs-dist": "^5.4.54",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.8.0",

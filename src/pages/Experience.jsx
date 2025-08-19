@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 
 export default function Experience() {
   const [items, setItems] = useState([])
-  const theme = 'dark'
 
   useEffect(() => {
     const url = `${import.meta.env.BASE_URL}experience.json`

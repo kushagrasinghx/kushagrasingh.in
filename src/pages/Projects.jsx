@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 
 export default function Projects() {
   const [projects, setProjects] = useState([])
-  const theme = 'dark'
 
   useEffect(() => {
     fetch('/projects.json')
