@@ -1,13 +1,10 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { useTheme } from '../ThemeContext'
 import { Moon, Sun, Menu, X } from 'lucide-react'
 
 export default function Navbar() {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window === 'undefined') return 'dark'
-    return localStorage.getItem('theme') || 'dark'
-  })
-
+  const { theme, setTheme } = useTheme();
   const [unread, setUnread] = useState({ projects: true, experience: true })
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
@@ -17,23 +14,17 @@ export default function Navbar() {
     setMobileOpen(false)
   }, [location.pathname])
 
-  // Light/dark mode root class
-  useEffect(() => {
-    const root = document.documentElement
-    if (theme === 'light') root.classList.add('light')
-    else root.classList.remove('light')
-    localStorage.setItem('theme', theme)
-  }, [theme])
+  // Remove local theme effect, now handled by context
 
   const linkClass = ({ isActive }) =>
-    `transition-colors ${isActive ? 'text-white' : 'text-white/50 hover:text-white'}`
+    `transition-colors ${isActive ? 'text-[color:var(--fg)]' : 'text-[color:var(--fg)]/60 hover:text-[color:var(--fg)]'}`
 
   const handleNavClick = (key) => {
     setUnread((prev) => ({ ...prev, [key]: false }))
   }
 
   return (
-    <nav className='relative z-50 border-b border-white/15'>
+    <nav className='relative z-50 border-b border-white/15 dark:border-white/15 light:border-black/15'>
       <div className='flex h-[50px] items-center px-4 md:px-[60px]'>
 
         {/* Mobile: left hamburger */}
@@ -42,7 +33,7 @@ export default function Navbar() {
           className='md:hidden inline-flex items-center justify-center w-9 h-9 -ml-1'
           onClick={() => setMobileOpen((o) => !o)}
         >
-          {mobileOpen ? <X size={20} className='text-white' /> : <Menu size={20} className='text-white' />}
+          {mobileOpen ? <X size={20} className='text-white dark:text-white light:text-black' /> : <Menu size={20} className='text-white dark:text-white light:text-black' />}
         </button>
 
         {/* Desktop: centered links */}
@@ -74,12 +65,12 @@ export default function Navbar() {
         <button
           aria-label='Toggle theme'
           onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
-          className='ml-auto inline-flex items-center justify-center w-9 h-9 text-white/80 hover:text-white'
+          className='ml-auto inline-flex items-center justify-center w-9 h-9 text-white/80 hover:text-white dark:text-white/80 dark:hover:text-white light:text-black/80 light:hover:text-black'
         >
           {theme === 'dark' ? (
             <Sun size={18} />
           ) : (
-            <Moon size={18} className='text-[#111]' />
+            <Moon size={18} />
           )}
         </button>
       </div>
@@ -87,7 +78,8 @@ export default function Navbar() {
       {/* Mobile dropdown */}
       {mobileOpen && (
         <div
-          className='md:hidden absolute left-0 top-[50px] w-full border-b border-white/15 bg-[#0b0b0b]/95 backdrop-blur-sm'
+          className='md:hidden absolute left-0 top-[50px] w-full border-b border-white/15 dark:border-white/15 light:border-black/15 backdrop-blur-sm'
+          style={{ background: 'color-mix(in srgb, var(--bg) 95%, transparent)' }}
           role='menu'
           aria-label='Mobile navigation'
         >
@@ -129,3 +121,4 @@ export default function Navbar() {
     </nav>
   )
 }
+

@@ -1,4 +1,11 @@
+/* Default to light mode */
 body {
+  background-color: #fafafa;
+  color: #111;
+}
+
+/* Dark mode preserved under .dark */
+:root.dark body {
   background-color: #141414;
   color: #fff;
 }

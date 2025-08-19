@@ -1,9 +1,11 @@
 import { useRef, useState } from 'react'
+import { useTheme } from '../ThemeContext'
 import emailjs from '@emailjs/browser'
 
 export default function Contact() {
   const formRef = useRef(null)
   const [status, setStatus] = useState({ state: 'idle', msg: '' })
+  const { theme } = useTheme();
 
   const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
   const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
@@ -28,9 +30,9 @@ export default function Contact() {
     }
 
     try {
-      setStatus({ state: 'loading', msg: 'Sending…' })
+      setStatus({ state: 'loading', msg: 'Sending\u2026' })
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
-      setStatus({ state: 'success', msg: 'Message sent. I’ll get back to you soon!' })
+      setStatus({ state: 'success', msg: 'Message sent. I\u2019ll get back to you soon!' })
       formRef.current.reset()
     } catch (err) {
       console.error(err)
@@ -39,7 +41,7 @@ export default function Contact() {
   }
 
   return (
-    <main className='w-full min-h-[calc(100vh-100px)] flex flex-col box-border px-4 sm:px-6 md:px-[100px] py-[24px] md:py-[40px] overflow-x-hidden items-center'>
+    <main className={`w-full min-h-[calc(100vh-100px)] flex flex-col box-border px-4 sm:px-6 md:px-[100px] py-[24px] md:py-[40px] overflow-x-hidden items-center ${theme === 'light' ? 'text-black' : 'text-white'}`}> 
       <div className='w-full max-w-[1000px] mb-12'>
         <h1 className='font-ptserif text-4xl mb-6'>contact kushagra</h1>
 
@@ -133,6 +135,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
     </main>
   )
 }
