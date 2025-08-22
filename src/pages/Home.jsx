@@ -37,7 +37,7 @@ export default function Home() {
         <div className='w-full flex flex-col gap-4 md:gap-6'>
           <div className='w-full flex flex-col sm:flex-row gap-3 sm:gap-10'>
             <div className='font-ptserif text-2xl sm:text-3xl md:text-5xl mt-6 md:mt-10 text-white/50 dark:text-white/50'>
-              <a href='mailto:contact@kushagrasingh.in' className='hover:text-white dark:hover:text-white transition-colors'>hello@kushagrasingh.in</a>
+              <a href='mailto:hello@kushagrasingh.in' className='hover:text-white dark:hover:text-white transition-colors'>hello@kushagrasingh.in</a>
             </div>
       <div className='font-ptserif text-2xl sm:text-3xl md:text-5xl mt-0 md:mt-10 text-white/50 dark:text-white/50'>
               <a
